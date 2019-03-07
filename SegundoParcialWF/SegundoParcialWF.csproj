@@ -77,6 +77,7 @@
   <ItemGroup>
     <Content Include="Consultas\CCuentaBancariaWF.aspx" />
     <Content Include="Consultas\CDepositoWF.aspx" />
+    <Content Include="Consultas\CPrestamoWF.aspx" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
     <Content Include="Content\bootstrap-reboot.css" />
@@ -88,10 +89,12 @@
     <Content Include="Global.asax" />
     <Content Include="Registros\CuentaBancariaWF.aspx" />
     <Content Include="Registros\DepositoWF.aspx" />
+    <Content Include="Registros\PrestamoWF.aspx" />
     <Content Include="Resources\120103_145933_1.jpg" />
     <Content Include="Resources\cabecera-post-cuenta-bancaria.jpg" />
     <Content Include="Resources\cuenta-bancaria.png" />
     <Content Include="Resources\deposito-bancario-612x408.jpg" />
+    <Content Include="Resources\depositphotos_56006431-stock-photo-loan-approved-means-lending-passed.jpg" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -157,6 +160,13 @@
     <Compile Include="Consultas\CDepositoWF.aspx.designer.cs">
       <DependentUpon>CDepositoWF.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Consultas\CPrestamoWF.aspx.cs">
+      <DependentUpon>CPrestamoWF.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Consultas\CPrestamoWF.aspx.designer.cs">
+      <DependentUpon>CPrestamoWF.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -174,6 +184,13 @@
     </Compile>
     <Compile Include="Registros\DepositoWF.aspx.designer.cs">
       <DependentUpon>DepositoWF.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Registros\PrestamoWF.aspx.cs">
+      <DependentUpon>PrestamoWF.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Registros\PrestamoWF.aspx.designer.cs">
+      <DependentUpon>PrestamoWF.aspx</DependentUpon>
     </Compile>
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>

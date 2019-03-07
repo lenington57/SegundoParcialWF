@@ -14,7 +14,8 @@ namespace SegundoParcialWF.Registros
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            fechaTextBox.Text = DateTime.Now.ToString("yyyy-MM-dd");
+            balanceTextBox.Text = "0";
         }
 
         private void Limpiar()

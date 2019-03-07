@@ -14,7 +14,7 @@ namespace SegundoParcialWF.Registros
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            fechaTextBox.Text = DateTime.Now.ToString("yyyy-MM-dd");
         }
 
         private void LlenarCombo()

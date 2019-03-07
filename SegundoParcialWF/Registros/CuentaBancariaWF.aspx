@@ -31,7 +31,6 @@
                             </div>
                         </div>
                         <br>
-                        <!-- form-group// -->
                         <div class="col-md-6 col-md-offset-3">
                             <div class="container">
                                 <div class="form-group">
@@ -42,19 +41,16 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- form-group// -->
-                        <!-- form-group// -->
                         <div class="col-md-6 col-md-offset-3">
                             <div class="container">
                                 <div class="form-group">
-                                    <asp:Label ID="Label1" runat="server" Text="Balance"></asp:Label>
+                                    <asp:Label ID="Label1" runat="server" Text="Balance Pendiente"></asp:Label>
                                     <asp:TextBox class="form-control" ID="balanceTextBox" type="number" Text="0" runat="server"></asp:TextBox>
                                     <asp:RequiredFieldValidator ID="BalanceRFV" runat="server" ErrorMessage="No puede estar vacío" ControlToValidate="balanceTextBox" ForeColor="Red" ValidationGroup="Guardar">*</asp:RequiredFieldValidator>
                                     <asp:RegularExpressionValidator ID="BalanceREV" runat="server" ErrorMessage="Solo Números" ForeColor="Red" ValidationExpression="^[0-9]*$" ControlToValidate="balanceTextBox" ValidationGroup="Guardar">Solo Números</asp:RegularExpressionValidator>
                                 </div>
                             </div>
                         </div>
-                        <!-- form-group// -->
                         <asp:ValidationSummary ID="CuentaVS" runat="server" />
                         <div class="panel-footer">
                             <div class="text-center">
@@ -65,13 +61,10 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- form-group// -->
                     </form>
                 </article>
             </div>
             <!-- card.// -->
             <br>
-    </div>
-</div>
     </div>
 </asp:Content>
