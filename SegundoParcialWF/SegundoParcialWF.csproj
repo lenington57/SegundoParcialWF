@@ -75,6 +75,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Consultas\CCuentaBancariaWF.aspx" />
+    <Content Include="Consultas\CDepositoWF.aspx" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
     <Content Include="Content\bootstrap-reboot.css" />
@@ -141,6 +143,20 @@
     <Content Include="Scripts\popper-utils.js.map" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Consultas\CCuentaBancariaWF.aspx.cs">
+      <DependentUpon>CCuentaBancariaWF.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Consultas\CCuentaBancariaWF.aspx.designer.cs">
+      <DependentUpon>CCuentaBancariaWF.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Consultas\CDepositoWF.aspx.cs">
+      <DependentUpon>CDepositoWF.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Consultas\CDepositoWF.aspx.designer.cs">
+      <DependentUpon>CDepositoWF.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
