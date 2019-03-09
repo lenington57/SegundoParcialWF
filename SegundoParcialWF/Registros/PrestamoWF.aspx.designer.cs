@@ -40,13 +40,31 @@ namespace SegundoParcialWF.Registros {
         protected global::System.Web.UI.WebControls.TextBox prestamoIdTextBox;
         
         /// <summary>
-        /// EgresosImage control.
+        /// IdRFV control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Image EgresosImage;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator IdRFV;
+        
+        /// <summary>
+        /// IdREV control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator IdREV;
+        
+        /// <summary>
+        /// Image control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Image Image;
         
         /// <summary>
         /// Label10 control.
@@ -103,6 +121,24 @@ namespace SegundoParcialWF.Registros {
         protected global::System.Web.UI.WebControls.TextBox capitalTextBox;
         
         /// <summary>
+        /// CRFV control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator CRFV;
+        
+        /// <summary>
+        /// CREV control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator CREV;
+        
+        /// <summary>
         /// Label2 control.
         /// </summary>
         /// <remarks>
@@ -119,6 +155,24 @@ namespace SegundoParcialWF.Registros {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox pctIntTextBox;
+        
+        /// <summary>
+        /// PIRFV control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator PIRFV;
+        
+        /// <summary>
+        /// PIREV control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator PIREV;
         
         /// <summary>
         /// Label6 control.
@@ -148,6 +202,24 @@ namespace SegundoParcialWF.Registros {
         protected global::System.Web.UI.WebControls.Button agregarButton;
         
         /// <summary>
+        /// TMRFV control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator TMRFV;
+        
+        /// <summary>
+        /// TMREV control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator TMREV;
+        
+        /// <summary>
         /// prestamoGridView control.
         /// </summary>
         /// <remarks>
@@ -173,6 +245,15 @@ namespace SegundoParcialWF.Registros {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox totalTextBox;
+        
+        /// <summary>
+        /// VS control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ValidationSummary VS;
         
         /// <summary>
         /// nuevoButton control.
