@@ -82,5 +82,35 @@ namespace BLL
             return list;
         }
 
+        public static List<Prestamo> FiltrarPrestamos(int index, string criterio, DateTime desde, DateTime hasta)
+        {
+            Expression<Func<Prestamo, bool>> filtro = p => true;
+            Repositorio<Prestamo> repositorio = new Repositorio<Prestamo>();
+            List<Prestamo> list = new List<Prestamo>();
+
+            int id = ToInt(criterio);
+            switch (index)
+            {
+                case 0://Todo
+                    break;
+
+                case 1://Todo por fecha
+                    filtro = p => p.Fecha >= desde && p.Fecha <= hasta;
+                    break;
+
+                case 2://PrestamoId
+                    filtro = p => p.PrestamoId == id && p.Fecha >= desde && p.Fecha <= hasta;
+                    break;
+
+                case 3://CuentaId
+                    filtro = p => p.CuentaId == id && p.Fecha >= desde && p.Fecha <= hasta;
+                    break;                    
+            }
+
+            list = repositorio.GetList(filtro);
+
+            return list;
+        }
+
     }
 }

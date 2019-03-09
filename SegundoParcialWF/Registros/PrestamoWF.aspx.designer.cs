@@ -121,22 +121,22 @@ namespace SegundoParcialWF.Registros {
         protected global::System.Web.UI.WebControls.TextBox pctIntTextBox;
         
         /// <summary>
-        /// Label5 control.
+        /// Label6 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label5;
+        protected global::System.Web.UI.WebControls.Label Label6;
         
         /// <summary>
-        /// canMesTextBox control.
+        /// tieMesTextBox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox canMesTextBox;
+        protected global::System.Web.UI.WebControls.TextBox tieMesTextBox;
         
         /// <summary>
         /// agregarButton control.
@@ -148,13 +148,13 @@ namespace SegundoParcialWF.Registros {
         protected global::System.Web.UI.WebControls.Button agregarButton;
         
         /// <summary>
-        /// egresoGridView control.
+        /// prestamoGridView control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView egresoGridView;
+        protected global::System.Web.UI.WebControls.GridView prestamoGridView;
         
         /// <summary>
         /// Label1 control.

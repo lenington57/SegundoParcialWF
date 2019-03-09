@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SegundoParcialWF.Utilitarios;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -16,6 +17,26 @@ namespace SegundoParcialWF.Consultas
                 DesdeTextBox.Text = DateTime.Now.ToString("yyyy-MM-dd");
                 HastaTextBox.Text = DateTime.Now.ToString("yyyy-MM-dd");
             }
+        }
+
+        private int ToInt(object valor)
+        {
+            int retorno = 0;
+            int.TryParse(valor.ToString(), out retorno);
+
+            return retorno;
+        }
+
+        protected void buscarLinkButton_Click(object sender, EventArgs e)
+        {
+            int id = Utils.ToInt(CriterioTextBox.Text);
+            int index = ToInt(FiltroDropDownList.SelectedIndex);
+            DateTime desde = Utils.ToDateTime(DesdeTextBox.Text);
+            DateTime hasta = Utils.ToDateTime(HastaTextBox.Text);
+            UsuarioGridView.DataSource = BLL.Metodos.FiltrarPrestamos(index, CriterioTextBox.Text, desde, hasta);
+            UsuarioGridView.DataBind();
+
+            criterioLabel.Text = FiltroDropDownList.Text.ToString();
         }
     }
 }

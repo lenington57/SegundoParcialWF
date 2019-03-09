@@ -22,7 +22,7 @@
                     <asp:TextBox ID="CriterioTextBox" AutoCompleteType="Disabled" class="form-control input-group" runat="server"></asp:TextBox>
                 </div>
                 <div class="col-lg-1 p-0">
-                    <asp:LinkButton ID="buscarLinkButton" CssClass="btn btn-dark mt-4" runat="server">
+                    <asp:LinkButton ID="buscarLinkButton" CssClass="btn btn-dark mt-4" runat="server" OnClick="buscarLinkButton_Click">
                 <span class="fas fa-search"></span>
                  Buscar
                     </asp:LinkButton>
@@ -49,9 +49,10 @@
                                 <asp:BoundField DataField="PrestamoId" HeaderText="Id del Préstamo" />
                                 <asp:BoundField DataField="Fecha" HeaderText="Fecha" />
                                 <asp:BoundField DataField="CuentaId" HeaderText="Id de la Cuenta" />
+                                <asp:BoundField DataField="Capital" HeaderText="Capital" />
                                 <asp:BoundField DataField="PctInteres" HeaderText="%Interés" />                                
                                 <asp:BoundField DataField="TiempoMeses" HeaderText="Meses" />
-                                <asp:BoundField DataField="Monto" HeaderText="Monto Total" />
+                                <asp:BoundField DataField="Total" HeaderText="Total" />
                             </Columns>
                             <HeaderStyle BackColor="LightGreen" Font-Bold="True" />
                         </asp:GridView>

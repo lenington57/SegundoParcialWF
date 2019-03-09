@@ -17,11 +17,13 @@ namespace Entities
 
         public int CuentaId { get; set; }
 
+        public int Capital { get; set; }
+
         public double PctInteres { get; set; }
 
         public int TiempoMeses { get; set; }
 
-        public int Monto { get; set; }
+        public int Total { get; set; }
 
         public virtual List<CuotaMensual> Detalle { get; set; }
 
@@ -31,9 +33,9 @@ namespace Entities
             this.Detalle = new List<CuotaMensual>();
         }
 
-        public void AgregarDetalle(int Id, DateTime Fecha, int CuentaId, double Interes, double Capital, double Balance)
+        public void AgregarDetalle(int Id, DateTime Fecha, int NumeroCuota, int CuentaId, double Interes, double Capital, double Balance)
         {
-            this.Detalle.Add(new CuotaMensual(Id, Fecha, CuentaId, Interes, Capital, Balance));
+            this.Detalle.Add(new CuotaMensual(Id, Fecha, NumeroCuota, CuentaId, Interes, Capital, Balance));
         }
 
     }
