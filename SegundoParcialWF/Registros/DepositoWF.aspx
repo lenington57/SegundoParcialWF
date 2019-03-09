@@ -66,7 +66,7 @@
                             <div class="text-center">
                                 <div class="form-group" style="display: inline-block">
                                     <asp:Button Text="Nuevo" class="btn btn-dark btn-sm" runat="server" ID="nuevoButton" OnClick="nuevoButton_Click" />
-                                    <asp:Button Text="Guardar" class="btn btn-success btn-sm" runat="server" ID="guadarButton" OnClick="guadarButton_Click" />
+                                    <asp:Button Text="Guardar" class="btn btn-success btn-sm" runat="server" ID="guadarButton" OnClick="guadarButton_Click" ValidationGroup="Guardar" />
                                     <asp:Button Text="Eliminar" class="btn btn-danger btn-sm" runat="server" ID="eliminarButton" OnClick="eliminarButton_Click" />
                                 </div>
                             </div>
@@ -76,6 +76,5 @@
             </div>
             <!-- card.// -->
     </div>
-</div>
-    </div>
+    <br>
 </asp:Content>

@@ -45,7 +45,7 @@
                             <div class="container">
                                 <div class="form-group">
                                     <asp:Label ID="Label1" runat="server" Text="Balance Pendiente"></asp:Label>
-                                    <asp:TextBox class="form-control" ID="balanceTextBox" type="number" Text="0" runat="server"></asp:TextBox>
+                                    <asp:TextBox class="form-control" ID="balanceTextBox" type="number" Text="0" runat="server" ReadOnly="True"></asp:TextBox>
                                     <asp:RequiredFieldValidator ID="BalanceRFV" runat="server" ErrorMessage="No puede estar vacío" ControlToValidate="balanceTextBox" ForeColor="Red" ValidationGroup="Guardar">*</asp:RequiredFieldValidator>
                                     <asp:RegularExpressionValidator ID="BalanceREV" runat="server" ErrorMessage="Solo Números" ForeColor="Red" ValidationExpression="^[0-9]*$" ControlToValidate="balanceTextBox" ValidationGroup="Guardar">Solo Números</asp:RegularExpressionValidator>
                                 </div>
@@ -56,7 +56,7 @@
                             <div class="text-center">
                                 <div class="form-group" style="display: inline-block">
                                     <asp:Button Text="Nuevo" class="btn btn-dark btn-sm" runat="server" ID="nuevoButton" OnClick="nuevoButton_Click" />
-                                    <asp:Button Text="Guardar" class="btn btn-success btn-sm" runat="server" ID="guadarButton" OnClick="guadarButton_Click" />
+                                    <asp:Button Text="Guardar" class="btn btn-success btn-sm" runat="server" ID="guadarButton" OnClick="guadarButton_Click" ValidationGroup="Guardar" />
                                     <asp:Button Text="Eliminar" class="btn btn-danger btn-sm" runat="server" ID="eliminarButton" OnClick="eliminarButton_Click" />
                                 </div>
                             </div>
@@ -67,4 +67,5 @@
             <!-- card.// -->
             <br>
     </div>
+<br>
 </asp:Content>

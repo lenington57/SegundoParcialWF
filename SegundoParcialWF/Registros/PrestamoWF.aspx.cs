@@ -95,8 +95,25 @@ namespace SegundoParcialWF.Registros
             totalTextBox.Text = "";
             ViewState["Prestamo"] = new Prestamo();
             this.BindGrid();
-        }        
-    
+        }
+
+        private bool HayErrores()
+        {
+            bool HayErrores = false;
+
+            if (prestamoGridView.Rows.Count == 0)
+            {
+                Utils.ShowToastr(this, "Debe calcular su Préstamo.", "Error", "error");
+                HayErrores = true;
+            }
+            if (ToInt(cuentaDropDownList.SelectedValue) < 1)
+            {
+                Utils.ShowToastr(this, "Debe Seleccionar una Cuenta que haya guardada.", "Error", "error");
+                HayErrores = true;
+            }
+            return HayErrores;
+        }
+
         protected void agregarButton_Click(object sender, EventArgs e)
         {
             int NumCuota = 1;
@@ -105,27 +122,28 @@ namespace SegundoParcialWF.Registros
             int Meses = ToInt(tieMesTextBox.Text);
             double IntereAnual = ToDouble(pctIntTextBox.Text);
             IntereAnual /= 100;
+            var dat = new DateTime(2019, 03, 15);
 
-            double CInteres = capital * IntereAnual;
+            double TotalInteres = capital * IntereAnual;
             double CapitalMensual = capital / Meses;
-            double TotalInteres = CInteres * Meses;
+            double CInteres = TotalInteres / Meses;
             double Mensualidad = CapitalMensual + CInteres;
             double Balance = capital + TotalInteres;
+            int CuentaId = ToInt(cuentaDropDownList.SelectedValue);
 
             Prestamo prestamo = new Prestamo();
-            for (int i = 0; i < Meses; i++)
+            for (int i = 1; i <= Meses; i++)
             {
                 Balance -= Mensualidad;
                 if (Balance < 0)
                     Balance = 0;
                 prestamo = (Prestamo)ViewState["Prestamo"];
-                prestamo.AgregarDetalle(0, date, NumCuota, 1, 
+                prestamo.AgregarDetalle(0, dat.AddMonths(i), prestamo.PrestamoId, NumCuota, CuentaId, 
                     CInteres, CapitalMensual, Balance);
 
                 ViewState["Prestamo"] = prestamo;
                 BindGrid();
-                NumCuota++;
-                date.AddMonths(1);                
+                NumCuota++;   
             }
             double Total = TotalInteres + capital;
             totalTextBox.Text = Total.ToString();
@@ -133,7 +151,7 @@ namespace SegundoParcialWF.Registros
 
         protected void BuscarButton_Click(object sender, EventArgs e)
         {
-            RepositorioPrestamo repositorio = new RepositorioPrestamo();
+            Repositorio<Prestamo> repositorio = new Repositorio<Prestamo>();
 
             var prestamo = repositorio.Buscar(Utils.ToInt(prestamoIdTextBox.Text));
             if (prestamo != null)
@@ -144,7 +162,7 @@ namespace SegundoParcialWF.Registros
             else
             {
                 Limpiar();
-                Utils.ShowToastr(this, "No se pudo encontrar el egreso especificado", "Error", "error");
+                Utils.ShowToastr(this, "No se pudo encontrar el Préstamo especificado", "Error", "error");
             }
         }
 
@@ -159,35 +177,42 @@ namespace SegundoParcialWF.Registros
             RepositorioPrestamo repositorio = new RepositorioPrestamo();
             Prestamo prestamo = new Prestamo();
 
-            prestamo = LlenarClase();
-
-            if (ToInt(prestamoIdTextBox.Text) == 0)
+            if (HayErrores())
             {
-                paso = repositorio.Guardar(prestamo);
-                Utils.ShowToastr(this, "Guardado", "Exito", "success");
-                Limpiar();
+                return;
             }
             else
             {
-                RepositorioPrestamo repository = new RepositorioPrestamo();
-                int id = ToInt(prestamoIdTextBox.Text);
-                prestamo = repository.Buscar(id);
+                prestamo = LlenarClase();
 
-                if (prestamo != null)
+                if (ToInt(prestamoIdTextBox.Text) == 0)
                 {
-                    paso = repository.Modificar(LlenarClase());
-                    Utils.ShowToastr(this, "Modificado", "Exito", "success");
+                    paso = repositorio.Guardar(prestamo);
+                    Utils.ShowToastr(this, "Guardado", "Exito", "success");
+                    Limpiar();
                 }
                 else
-                    Utils.ShowToastr(this, "Id no existe", "Error", "error");
-            }
+                {
+                    RepositorioPrestamo repository = new RepositorioPrestamo();
+                    int id = ToInt(prestamoIdTextBox.Text);
+                    prestamo = repository.Buscar(id);
 
-            if (paso)
-            {
-                Limpiar();
+                    if (prestamo != null)
+                    {
+                        paso = repository.Modificar(LlenarClase());
+                        Utils.ShowToastr(this, "Modificado", "Exito", "success");
+                    }
+                    else
+                        Utils.ShowToastr(this, "Id no existe", "Error", "error");
+                }
+
+                if (paso)
+                {
+                    Limpiar();
+                }
+                else
+                    Utils.ShowToastr(this, "No se pudo guardar", "Error", "error");
             }
-            else
-                Utils.ShowToastr(this, "No se pudo guardar", "Error", "error");
         }
 
         protected void eliminarButton_Click(object sender, EventArgs e)

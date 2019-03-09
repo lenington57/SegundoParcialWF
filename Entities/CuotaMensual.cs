@@ -16,6 +16,8 @@ namespace Entities
 
         public DateTime Fecha { get; set; }
 
+        public int PrestamoId { get; set; }
+
         public int NumeroCuota { get; set; }
 
         public int CuentaId { get; set; }
@@ -34,6 +36,7 @@ namespace Entities
         {
             Id = 0;
             Fecha = DateTime.Now;
+            PrestamoId = 0;
             NumeroCuota = 0;
             CuentaId = 0;
             Interes = 0;
@@ -41,10 +44,11 @@ namespace Entities
             Balance = 0;
         }
 
-        public CuotaMensual(int id, DateTime fecha, int numeroCuota, int cuentaId, double interes, double capitalMensual, double balance)
+        public CuotaMensual(int id, DateTime fecha, int prestamoId, int numeroCuota, int cuentaId, double interes, double capitalMensual, double balance)
         {
             Id = id;
             Fecha = fecha;
+            PrestamoId = prestamoId;
             NumeroCuota = numeroCuota;
             CuentaId = cuentaId;
             Interes = interes;

@@ -73,7 +73,7 @@
                                 </div>
                             </div>
                         </div>
-                        <asp:GridView ID="prestamoGridView" runat="server" class="table table-condensed table-bordered table-responsive" AutoGenerateColumns="False" CellPadding="4" ForeColor="#0066FF" GridLines="None">
+                        <asp:GridView ID="prestamoGridView" runat="server" class="table table-condensed table-bordered table-responsive" AutoGenerateColumns="False" CellPadding="4" ForeColor="Black" GridLines="None" BackColor="White">
                             <AlternatingRowStyle BackColor="#999999" />
                             <Columns>
                                 <asp:BoundField DataField="NumeroCuota" HeaderText="Cuota" />
@@ -82,7 +82,7 @@
                                 <asp:BoundField DataField="CapitalMensual" HeaderText="Capital" />
                                 <asp:BoundField DataField="Balance" HeaderText="Balance" />
                             </Columns>
-                            <HeaderStyle BackColor="#003366" Font-Bold="True" />
+                            <HeaderStyle BackColor="#999999" Font-Bold="True" />
                         </asp:GridView>
                         <!-- form-group// -->
                         <div class="col-md-6 col-md-offset-3">
@@ -111,5 +111,4 @@
             <!-- card.// -->
     </div>
     <br>
-    </div>
 </asp:Content>

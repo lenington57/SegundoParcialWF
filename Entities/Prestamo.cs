@@ -33,9 +33,9 @@ namespace Entities
             this.Detalle = new List<CuotaMensual>();
         }
 
-        public void AgregarDetalle(int Id, DateTime Fecha, int NumeroCuota, int CuentaId, double Interes, double Capital, double Balance)
+        public void AgregarDetalle(int Id, DateTime Fecha, int PrestamoId, int NumeroCuota, int CuentaId, double Interes, double Capital, double Balance)
         {
-            this.Detalle.Add(new CuotaMensual(Id, Fecha, NumeroCuota, CuentaId, Interes, Capital, Balance));
+            this.Detalle.Add(new CuotaMensual(Id, Fecha, PrestamoId, NumeroCuota, CuentaId, Interes, Capital, Balance));
         }
 
     }

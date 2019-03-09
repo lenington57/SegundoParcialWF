@@ -117,7 +117,6 @@ namespace BLL
             }
             catch (Exception)
             {
-
                 throw;
             }
             return prestamo;
