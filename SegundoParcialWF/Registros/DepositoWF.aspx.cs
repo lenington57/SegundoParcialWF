@@ -15,6 +15,7 @@ namespace SegundoParcialWF.Registros
         protected void Page_Load(object sender, EventArgs e)
         {
             fechaTextBox.Text = DateTime.Now.ToString("yyyy-MM-dd");
+            LlenarCombo();
         }
 
         private void LlenarCombo()
@@ -24,7 +25,6 @@ namespace SegundoParcialWF.Registros
             cuentaDropDownList.DataValueField = "CuentaBancariaId";
             cuentaDropDownList.DataTextField = "Nombre";
             cuentaDropDownList.DataBind();
-            cuentaDropDownList.Items.Insert(0, new ListItem("", ""));
         }
 
         public Deposito LlenarClase()

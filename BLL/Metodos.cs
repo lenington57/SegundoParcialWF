@@ -18,6 +18,39 @@ namespace BLL
             return retorno;
         }
 
+        public static List<CuentaBancaria> FCuentas(Expression<Func<CuentaBancaria, bool>> filtro)
+        {
+            filtro = p => true;
+            Repositorio<CuentaBancaria> repositorio = new Repositorio<CuentaBancaria>();
+            List<CuentaBancaria> list = new List<CuentaBancaria>();
+
+            list = repositorio.GetList(filtro);
+
+            return list;
+        }
+
+        public static List<Deposito> FDepositos(Expression<Func<Deposito, bool>> filtro)
+        {
+            filtro = p => true;
+            Repositorio<Deposito> repositorio = new Repositorio<Deposito>();
+            List<Deposito> list = new List<Deposito>();
+
+            list = repositorio.GetList(filtro);
+
+            return list;
+        }
+
+        public static List<Prestamo> FPrestamos(Expression<Func<Prestamo, bool>> filtro)
+        {
+            filtro = p => true;
+            Repositorio<Prestamo> repositorio = new Repositorio<Prestamo>();
+            List<Prestamo> list = new List<Prestamo>();
+
+            list = repositorio.GetList(filtro);
+
+            return list;
+        }
+
         public static List<CuentaBancaria> FiltrarCuentas(int index, string criterio, DateTime desde, DateTime hasta)
         {
             Expression<Func<CuentaBancaria, bool>> filtro = p => true;

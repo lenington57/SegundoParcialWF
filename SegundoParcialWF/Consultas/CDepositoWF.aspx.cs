@@ -38,5 +38,10 @@ namespace SegundoParcialWF.Consultas
 
             criterioLabel.Text = FiltroDropDownList.Text.ToString();
         }
+
+        protected void ImprimirLinkButton_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("/Reportes/ViewerDepositos.aspx");
+        }
     }
 }

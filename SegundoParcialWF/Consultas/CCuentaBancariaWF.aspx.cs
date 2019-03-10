@@ -1,4 +1,5 @@
-﻿using SegundoParcialWF.Utilitarios;
+﻿using Entities;
+using SegundoParcialWF.Utilitarios;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,6 +11,7 @@ namespace SegundoParcialWF.Consultas
 {
     public partial class CCuentaBancariaWF : System.Web.UI.Page
     {
+        public static List<CuentaBancaria> list { get; set; }
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!Page.IsPostBack)
@@ -37,6 +39,11 @@ namespace SegundoParcialWF.Consultas
             UsuarioGridView.DataBind();
 
             criterioLabel.Text = FiltroDropDownList.Text.ToString();
+        }
+
+        protected void ImprimirLinkButton_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("/Reportes/ViewerCuentas.aspx");
         }
     }
 }
