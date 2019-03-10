@@ -117,6 +117,7 @@
     <Content Include="Registros\PrestamoWF.aspx" />
     <Content Include="Reportes\ViewerCuentas.aspx" />
     <Content Include="Reportes\ViewerDepositos.aspx" />
+    <Content Include="Reportes\ViewerPrestamos.aspx" />
     <Content Include="Resources\120103_145933_1.jpg" />
     <Content Include="Resources\cabecera-post-cuenta-bancaria.jpg" />
     <Content Include="Resources\cuenta-bancaria.png" />
@@ -167,6 +168,17 @@
     </None>
     <Content Include="DepositosDbDataSet.xss">
       <DependentUpon>DepositosDbDataSet.xsd</DependentUpon>
+    </Content>
+    <Content Include="PrestamosDbDataSet.xsc">
+      <DependentUpon>PrestamosDbDataSet.xsd</DependentUpon>
+    </Content>
+    <None Include="PrestamosDbDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>PrestamosDbDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="PrestamosDbDataSet.xss">
+      <DependentUpon>PrestamosDbDataSet.xsd</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-3.0.0-vsdoc.js" />
     <Content Include="Scripts\jquery-3.0.0.js" />
@@ -249,6 +261,11 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="PrestamosDbDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PrestamosDbDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Registros\CuentaBancariaWF.aspx.cs">
       <DependentUpon>CuentaBancariaWF.aspx</DependentUpon>
@@ -284,6 +301,13 @@
     </Compile>
     <Compile Include="Reportes\ViewerDepositos.aspx.designer.cs">
       <DependentUpon>ViewerDepositos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\ViewerPrestamos.aspx.cs">
+      <DependentUpon>ViewerPrestamos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reportes\ViewerPrestamos.aspx.designer.cs">
+      <DependentUpon>ViewerPrestamos.aspx</DependentUpon>
     </Compile>
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
@@ -334,6 +358,7 @@
   <ItemGroup>
     <EmbeddedResource Include="Reportes\ListadoCuentas.rdlc" />
     <EmbeddedResource Include="Reportes\ListadoDepositos.rdlc" />
+    <EmbeddedResource Include="Reportes\ListadoPrestamos.rdlc" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
