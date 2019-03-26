@@ -12,8 +12,6 @@ namespace SegundoParcialWF.Registros
 {
     public partial class PrestamoWF : System.Web.UI.Page
     {
-        List<CuotaMensual> listDetalle = new List<CuotaMensual>();
-
         protected void Page_Load(object sender, EventArgs e)
         {
             fechaTextBox.Text = DateTime.Now.ToString("yyyy-MM-dd");
@@ -28,6 +26,7 @@ namespace SegundoParcialWF.Registros
                 cuentaDropDownList.DataBind();
 
                 ViewState["Prestamo"] = new Prestamo();
+                ViewState["CuotaMensual"] = new CuotaMensual();
             }
         }
 
@@ -49,10 +48,7 @@ namespace SegundoParcialWF.Registros
         public Prestamo LlenarClase()
         {
             Prestamo prestamo = new Prestamo();
-
-            prestamo = (Prestamo)ViewState["Prestamo"];
-            listDetalle = (List<CuotaMensual>)prestamoGridView.DataSource;
-
+            
             prestamo.PrestamoId = Utils.ToInt(prestamoIdTextBox.Text);
             prestamo.Fecha = Convert.ToDateTime(fechaTextBox.Text).Date;
             prestamo.CuentaId = ToInt(cuentaDropDownList.SelectedValue);
@@ -60,30 +56,29 @@ namespace SegundoParcialWF.Registros
             prestamo.PctInteres = ToInt(pctIntTextBox.Text);
             prestamo.TiempoMeses = ToInt(tieMesTextBox.Text);
             prestamo.Total = ToInt(totalTextBox.Text);
-            prestamo.Detalle = listDetalle;
+            prestamo.Detalle = (List<CuotaMensual>)ViewState["CuotaMensual"];
 
             return prestamo;
         }
 
         protected void BindGrid()
         {
-            prestamoGridView.DataSource = ((Prestamo)ViewState["Prestamo"]).Detalle;
+            prestamoGridView.DataSource = ((Prestamo)ViewState["PrestamosDetalles"]).Detalle;
             prestamoGridView.DataBind();
         }
 
         public void LlenarCampos(Prestamo prestamo)
         {
-            Limpiar();
-            prestamoIdTextBox.Text = prestamo.PrestamoId.ToString();
             fechaTextBox.Text = prestamo.Fecha.ToString("yyyy-MM-dd");
             cuentaDropDownList.SelectedValue = prestamo.CuentaId.ToString();
             capitalTextBox.Text = prestamo.Capital.ToString();
             pctIntTextBox.Text = prestamo.PctInteres.ToString();
             tieMesTextBox.Text = prestamo.TiempoMeses.ToString();
-            prestamoGridView.DataSource = prestamo.Detalle.ToList();
-            this.BindGrid();
+            prestamoGridView.DataSource = Metodos.ListaDetalle(Utils.ToInt(prestamoIdTextBox.Text));
+            prestamoGridView.DataBind();
             totalTextBox.Text = prestamo.Total.ToString();
         }
+
         protected void Limpiar()
         {
             prestamoIdTextBox.Text = "0";
@@ -93,7 +88,6 @@ namespace SegundoParcialWF.Registros
             pctIntTextBox.Text = "";
             tieMesTextBox.Text = "";
             totalTextBox.Text = "";
-            ViewState["Prestamo"] = new Prestamo();
             this.BindGrid();
         }
 
@@ -131,18 +125,18 @@ namespace SegundoParcialWF.Registros
             double Balance = capital + TotalInteres;
             int CuentaId = ToInt(cuentaDropDownList.SelectedValue);
 
-            Prestamo prestamo = new Prestamo();
+            CuotaMensual cuota = new CuotaMensual();
+            List<CuotaMensual> listDetalle = new List<CuotaMensual>();
             for (int i = 1; i <= Meses; i++)
             {
                 Balance -= Mensualidad;
                 if (Balance < 0)
                     Balance = 0;
-                prestamo = (Prestamo)ViewState["Prestamo"];
-                prestamo.AgregarDetalle(0, dat.AddMonths(i), prestamo.PrestamoId, NumCuota, CuentaId, 
-                    CInteres, CapitalMensual, Balance);
+                listDetalle.Add(new CuotaMensual(0, dat.AddMonths(i), cuota.PrestamoId, NumCuota, CuentaId, CInteres, CapitalMensual, Balance));
+                ViewState["CuotaMensual"] = listDetalle;
 
-                ViewState["Prestamo"] = prestamo;
-                BindGrid();
+                prestamoGridView.DataSource = ViewState["CuotaMensual"];
+                prestamoGridView.DataBind();
                 NumCuota++;   
             }
             double Total = TotalInteres + capital;

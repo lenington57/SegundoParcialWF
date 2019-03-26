@@ -145,5 +145,16 @@ namespace BLL
             return list;
         }
 
+
+        //Lista para el Detalle.
+        public static List<CuotaMensual> ListaDetalle(int IdLista)
+        {
+            Repositorio<CuotaMensual> repositorio = new Repositorio<CuotaMensual>();
+            List<CuotaMensual> list = new List<CuotaMensual>();
+            int id = IdLista;
+            list = repositorio.GetList(c => c.PrestamoId == id);
+
+            return list;
+        }
     }
 }
